@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>NRWelcomeES</name>
+    <events>
+        <event-block sid="9752534502336872">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="9740547406517505" type="System" />
+                <condition id="-11" name="For Each" sid="7013616767565842" type="System">
+                    <param id="0" name="Object">CharacterThumbs</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="3246633133493781" type="CharacterThumbs">
+                    <param id="0" name="Frame number">(Self.CharactherIndex-1)*2+1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3241839175818375">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="1588482448454178" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9116002977570924">
+                    <conditions>
+                        <condition id="3" name="Local key exists" sid="5003386959313479" type="WebStorage">
+                            <param id="0" name="Key">HighScoreStoreName</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="11" name="Load" sid="8901203800455319" type="HighScoresArray">
+                            <param id="0" name="JSON">WebStorage.LocalValue(HighScoreStoreName)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9198343915664131">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="4453885687359857" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="9397510540757477" type="Function">
+                            <param id="0" name="Name">&quot;SetDefaults&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="6836897399140101">
+            <conditions>
+                <condition id="0" name="On function" sid="7418592511074002" type="Function">
+                    <param id="0" name="Name">&quot;SetDefaults&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set at XY" sid="1143045580373477" type="HighScoresArray">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">&quot;Splinter&quot;</param>
+                </action>
+                <action id="3" name="Set at XY" sid="8685291903505203" type="HighScoresArray">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">&quot;Leonardo&quot;</param>
+                </action>
+                <action id="3" name="Set at XY" sid="5616870448852271" type="HighScoresArray">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">&quot;Raffaello&quot;</param>
+                </action>
+                <action id="3" name="Set at XY" sid="7536949993195763" type="HighScoresArray">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">15000</param>
+                </action>
+                <action id="3" name="Set at XY" sid="2735555052501569" type="HighScoresArray">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">7500</param>
+                </action>
+                <action id="3" name="Set at XY" sid="8274230720185046" type="HighScoresArray">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">1000</param>
+                </action>
+                <action id="0" name="Set local value" sid="1567230054171606" type="WebStorage">
+                    <param id="0" name="Key">HighScoreStoreName</param>
+                    <param id="1" name="Value">HighScoresArray.AsJSON</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="4656854628611511" title="Level Selection">
+            <sub-events>
+                <event-block sid="6270043212124944">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="6964887525500266" type="Touch">
+                            <param id="0" name="Object">CharacterThumbs</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9619467399765115" type="System">
+                            <param id="0" name="Variable">PlayerIndex</param>
+                            <param id="1" name="Value">CharacterThumbs.CharactherIndex</param>
+                        </action>
+                        <action id="0" name="Call function" sid="5184044760028849" type="Function">
+                            <param id="0" name="Name">&quot;DrawCharacter&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block collapsed="1" sid="7394784046554803">
+                    <conditions>
+                        <condition id="0" name="On function" sid="5593481232604562" type="Function">
+                            <param id="0" name="Name">&quot;DrawCharacter&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="1720875563643282" type="Sign">
+                            <param id="0" name="Frame number">PlayerIndex</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="9048127834008318">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="8836345232271886" type="System">
+                                    <param id="0" name="Object">CharacterThumbs</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="14" name="Log" sid="8946417582654272" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">&quot;Selected index: &quot;&amp;PlayerIndex</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="9550922882788641">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="6992657684242427" type="CharacterThumbs">
+                                            <param id="0" name="Instance variable">CharactherIndex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">PlayerIndex</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="1089831535527496" type="CharacterThumbs">
+                                            <param id="0" name="Frame number">(Self.CharactherIndex-1)*2+1</param>
+                                        </action>
+                                        <action id="14" name="Log" sid="719023432599576" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">&quot;Selected index2: &quot;&amp;PlayerIndex</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3431677705968882">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="6491590064977452" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="9859702970778215" type="CharacterThumbs">
+                                            <param id="0" name="Frame number">(Self.CharactherIndex-1)*2</param>
+                                        </action>
+                                        <action id="14" name="Log" sid="7874691889864172" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">&quot;Selected index3: &quot;&amp;PlayerIndex</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3673880004500487">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="1876956222523362" type="Touch">
+                            <param id="0" name="Object">EasyLevel</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="7691472078876598" type="System">
+                            <param id="0" name="Variable">DifficultyLevel</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="878756560422672" type="System">
+                            <param id="0" name="Layout">NRSelectL</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9955674816773818">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="4340800346619765" type="Touch">
+                            <param id="0" name="Object">MediumLevel</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5327205383776409" type="System">
+                            <param id="0" name="Variable">DifficultyLevel</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="3502741322255843" type="System">
+                            <param id="0" name="Layout">NRSelectL</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2121573233786244">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="1807535921644729" type="Touch">
+                            <param id="0" name="Object">HardLevel</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1253544615865554" type="System">
+                            <param id="0" name="Variable">DifficultyLevel</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="3707773580709943" type="System">
+                            <param id="0" name="Layout">NRSelectL</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6073480569038208">
+                    <conditions>
+                        <condition id="0" name="Is Windows Phone app" sid="8684024940915779" type="WindowsPhone" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1190939259078539">
+                            <conditions>
+                                <condition id="2" name="On back" sid="3805307168718924" type="WindowsPhone" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Quit" sid="8624503976234956" type="WindowsPhone" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="1173227245148907">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="2296089212342594" type="Touch">
+                            <param id="0" name="Object">SelectPlayerLabel</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="5354910592004752" type="System">
+                            <param id="0" name="Layout">NRIntroL</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="271832828086815">
+            <conditions>
+                <condition id="3" name="On touched object" sid="4978020323977617" type="Touch">
+                    <param id="0" name="Object">TitleHighScores</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="7914708780949673" type="System">
+                    <param id="0" name="Layout">HighScoresLayout</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

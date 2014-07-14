@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>HowToPlayEventSheet</name>
+    <events>
+        <event-block sid="7511276295118744">
+            <conditions>
+                <condition id="3" name="On touched object" sid="4968948393904535" type="Touch">
+                    <param id="0" name="Object">HelpScreen</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="403463693787451" type="System">
+                    <param id="0" name="Layout">NRGameL</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9280889974240193">
+            <conditions>
+                <condition id="3" name="On touched object" sid="9391686649540899" type="Touch">
+                    <param id="0" name="Object">BackFinger</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="8589163918217917" type="System">
+                    <param id="0" name="Layout">NRSelectL</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

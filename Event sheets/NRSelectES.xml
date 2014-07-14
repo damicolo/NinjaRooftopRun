@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>NRSelectES</name>
+    <events>
+        <variable constant="0" name="TotalDistance" sid="3365471519221821" static="0" type="number">0</variable>
+        <event-block sid="7653771874787896">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="1858465445222152" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="9877727278655917" type="SelectedPlayer">
+                    <param id="0" name="Frame number">PlayerIndex-1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="428600072745833">
+                    <conditions>
+                        <condition id="3" name="Local key exists" sid="6680668756318639" type="WebStorage">
+                            <param id="0" name="Key">&quot;SavedDataNinja&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="11" name="Load" sid="9317461538768953" type="LevelsArray">
+                            <param id="0" name="JSON">WebStorage.LocalValue(&quot;SavedDataNinja&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9077584865923474">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7621586328293134" type="System" />
+            </conditions>
+            <actions>
+                <action id="3" name="Set at XY" sid="7465345117982254" type="LevelsArray">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">max(1,LevelsArray.At(0,0))</param>
+                </action>
+                <action id="3" name="Set at XY" sid="1707608149701646" type="LevelsArray">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">max(1,LevelsArray.At(0,1))</param>
+                </action>
+                <action id="3" name="Set at XY" sid="2208584906552867" type="LevelsArray">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">2</param>
+                    <param id="2" name="Value">max(1,LevelsArray.At(0,2))</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5827612865948489">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8513291133732384" type="System" />
+                <condition id="-11" name="For Each" sid="1788992475231068" type="System">
+                    <param id="0" name="Object">Sprite</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="5597200442129778" type="Sprite">
+                    <param id="0" name="Frame number">LevelsArray.At(Sprite.TheIndex,DifficultyLevel)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6042012855094359">
+            <conditions>
+                <condition id="3" name="On touched object" sid="7518688861696761" type="Touch">
+                    <param id="0" name="Object">Sprite</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="8559117810365569" type="System">
+                    <param id="0" name="Variable">SelectedLevel</param>
+                    <param id="1" name="Value">Sprite.TheIndex</param>
+                </action>
+                <action id="14" name="Log" sid="6323070915029279" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;----------- Clicked sprite event&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block any="1" sid="6547895640338359">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="4531318564585113" type="System">
+                            <param id="0" name="Variable">FullVersion</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9940509253758537" type="System">
+                            <param id="0" name="Variable">SelectedLevel</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8681889283228832">
+                            <conditions>
+                                <condition id="1" name="Compare at XY" sid="8495277325358335" type="LevelsArray">
+                                    <param id="0" name="X">Sprite.TheIndex</param>
+                                    <param id="1" name="Y">DifficultyLevel</param>
+                                    <param id="2" name="Comparison">4</param>
+                                    <param id="3" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="14" name="Log" sid="2950631917061195" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">&quot;------------- Going to Layout &quot; </param>
+                                </action>
+                                <action id="-9" name="Set value" sid="4459532752361246" type="System">
+                                    <param id="0" name="Variable">TotalScore</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="9852877178791611">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="3486583504420466" type="System">
+                                            <param id="0" name="Variable">SelectedLevel</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-2" name="Go to layout" sid="8299907770401252" type="System">
+                                            <param id="0" name="Layout">HowToPlayLayout</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8150464205459656">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="4669455360001248" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-2" name="Go to layout" sid="5848013413770814" type="System">
+                                            <param id="0" name="Layout">NRGameL</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9392679122557117">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="1596991374476033" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="9622933519566466" type="BuyToUnlock1">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="8334107383701261" type="System">
+                            <param id="0" name="Seconds">5.1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="2474363645285113" type="BuyToUnlock1">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9098962191953762">
+            <conditions>
+                <condition id="0" name="Is Windows Phone app" sid="1315563644972707" type="WindowsPhone" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="8848890056305431">
+                    <conditions>
+                        <condition id="2" name="On back" sid="679678103150966" type="WindowsPhone" />
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="8938428248848286" type="System">
+                            <param id="0" name="Layout">NRWelcomeL</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3140828636440679">
+            <conditions>
+                <condition id="3" name="On touched object" sid="8192787994565157" type="Touch">
+                    <param id="0" name="Object">SelectedPlayer</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="7055282864290824" type="System">
+                    <param id="0" name="Layout">NRWelcomeL</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9557153022503808">
+            <conditions>
+                <condition id="3" name="On touched object" sid="3091276607056095" type="Touch">
+                    <param id="0" name="Object">BuyToUnlock1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="6848622583675399" type="System">
+                    <param id="0" name="Layout">NRIntroL</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7308626581984701">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="3965167855097253" type="Keyboard">
+                    <param id="0" name="Key">8 (Backspace)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="1600261801867022" type="System">
+                    <param id="0" name="Layout">NRWelcomeL</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9597667634784607">
+            <conditions>
+                <condition id="3" name="On touched object" sid="2295235398430166" type="Touch">
+                    <param id="0" name="Object">BackFinger</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="2673279033568469" type="System">
+                    <param id="0" name="Layout">NRWelcomeL</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
